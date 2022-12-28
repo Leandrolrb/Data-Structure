@@ -15,12 +15,24 @@ typedef struct vet{
 int main()
 {
     B v;
+    A aux;
     printf("lendo os valores do vetor ");
     for(int i=0;i<10;i++)
         scanf("%d",&v.elementos[i]);
-    printf("exibindo os valores do vetor ");
+    printf("\nOrdenando o vetor");
+    for(int i=0;i<10-1;i++)
+        for(int j=i+1;j<10;j++)
+            if(v.elementos[i]>v.elementos[j])
+            {
+              aux=v.elementos[i];
+              v.elementos[i]=v.elementos[j];
+              v.elementos[j]=aux;
+            }
+    printf("\nexibindo os valores do vetor ");
     for(int i=0;i<10;i++)
         printf("%d ",v.elementos[i]);   
 
     return 0;
 }
+
+
